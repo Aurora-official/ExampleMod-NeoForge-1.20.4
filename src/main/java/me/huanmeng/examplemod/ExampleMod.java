@@ -1,6 +1,7 @@
 package me.huanmeng.examplemod;
 
 import com.mojang.logging.LogUtils;
+import me.huanmeng.examplemod.item.ModItems;
 import net.minecraft.client.Minecraft;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
@@ -20,7 +21,7 @@ public class ExampleMod {
 
     public ExampleMod(IEventBus modEventBus) {
         modEventBus.addListener(this::commonSetup);
-
+        ModItems.registryItem(modEventBus);
         NeoForge.EVENT_BUS.register(this);
         modEventBus.addListener(this::addCreative);
     }
